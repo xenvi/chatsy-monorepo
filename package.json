@@ -1,0 +1,21 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "dependencies": {
+    "metro-config": "^0.56.0"
+  },
+  "scripts": {
+    "web": "lerna --scope=web run start --stream --",
+    "expo": "lerna --scope=expo-app run start --stream --",
+    "postinstall": "cd ./packages/expo-app && expo-yarn-workspaces postinstall"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": ["**/expo", "**/expo/**"]
+  }
+}
